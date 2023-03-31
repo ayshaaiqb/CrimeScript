@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 
+    use flash for when users add scripts
+-->
+{% for message in get_flashed_messages() %} 
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+{% endfor %}
+
+{% if id == current_user.id %}
+
+    <h1>Update User Profile</h1>
+    <br/>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <form  action="/update/{{ name_to_update.id }}" method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.name.label(
+        class="form-label") }}
+
+        {{ form.name(
+        class="form-control", value=name_to_update.name) }}
+        <br/>
+
+        {{ form.username.label(
+        class="form-label") }}
+
+        {{ form.username(
+        class="form-control", value=name_to_update.username) }}
+        <br/>
+
+        {{ form.email.label(
+        class="form-label") }}
+    
+        {{ form.email(
+        class="form-control", value=name_to_update.email) }}    
+        <br/>
+
+        {{ form.submit(
+        class="btn btn-secondary") }}
+        
+        <a href="{{ url_for('delete', id=id)}}" class="btn btn-danger">Delete</a>
+
+    </form>
+    </div>
+
+{% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Permission Denied to edit this page.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <br/>
+    <center>
+        <h1>404 Error</h1>
+        <p>Page Not Found</p>
+    </center>
+
+{% endif %}
+{% endblock %}

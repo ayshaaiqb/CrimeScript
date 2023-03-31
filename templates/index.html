@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Crime Script WELCOME</h1>
+
+<p>Thos os forst wen</p>
+
+<p>MY name is {{ first_name|capitalize }}</p>
+
+<p> {{ stuff|safe }}</p>
+
+<h3>Fav Pizza</h3>
+
+{% for topping in favourite_pizza %}
+    {{ topping }}<br/>
+{% endfor %}
+
+<br/><br/>
+{{ favourite_pizza.0}}
+
+{% endblock %}

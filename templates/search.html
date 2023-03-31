@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br/>
+    <center>
+        <h2>Searching Posts For: <strong>{{ searched }}</strong></h2>
+    </center><br/>
+    
+    {% if posts %}
+    <p>Here are the results:</p>
+    {% for post in posts %}
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h2>{{ post.title }}</h2>
+        Written By: {{ post.poster.name }}
+        <br/><br/>
+        {{ post.content|safe }}<br/><br/>
+        <a href="{{ url_for('post', id=post.id) }}" class="btn btn-outline-secondary btn-sm">View Post</a>
+    </div>
+    <br/>
+    {% endfor %}
+
+    {% else %}
+    <br/>
+    <p>Sorry, no posts were found</p>
+
+    {% endif %}
+{% endblock %}
