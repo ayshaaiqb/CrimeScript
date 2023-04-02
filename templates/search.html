@@ -4,7 +4,7 @@
 
     <br/>
     <center>
-        <h2>Searching Posts For: <strong>{{ searched }}</strong></h2>
+        <h2>Searching Scripts For: <strong>{{ searched }}</strong></h2>
     </center><br/>
     
     {% if posts %}
@@ -15,14 +15,14 @@
         Written By: {{ post.poster.name }}
         <br/><br/>
         {{ post.content|safe }}<br/><br/>
-        <a href="{{ url_for('post', id=post.id) }}" class="btn btn-outline-secondary btn-sm">View Post</a>
+        <a href="{{ url_for('post', id=post.id) }}" class="btn btn-outline-secondary btn-sm">View Script</a>
     </div>
     <br/>
     {% endfor %}
 
     {% else %}
     <br/>
-    <p>Sorry, no posts were found</p>
+    <p>Sorry, no scripts were found</p>
 
     {% endif %}
 {% endblock %}

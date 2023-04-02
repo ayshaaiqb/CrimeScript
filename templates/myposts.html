@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 
+    use flash for when users add scripts
+-->
+{% for message in get_flashed_messages() %} 
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+{% endfor %}
+
+
+<h1> My Scripts:</h1>
+<br/>
+
+{% if posts %}
+    {% for post in posts %} 
+        {% if post.poster_id == current_user.id %}
+            <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                <h2>{{ post.title }}</h2>
+                Written By: {{ post.poster.name }}
+                <br/><br/>
+                {{ post.content|safe }}<br/><br/>
+                <a href="{{ url_for('post', id=post.id) }}" class="btn btn-outline-secondary btn-sm">View Script</a>
+                <a href="{{ url_for('edit_post', id=post.id) }}" class="btn btn-outline-secondary btn-sm">Edit Script</a>
+                <a href="{{ url_for('delete_post', id=post.id) }}" class="btn btn-outline-danger btn-sm">Delete Script</a><br/>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <br/>
+    <p>Sorry, you have no scripts.</p>
+    <p>Click <a href="{{ url_for('add_post') }}">Here</a> to create one.</p>
+
+{% endif %}
+
+{% endblock %}
+
+

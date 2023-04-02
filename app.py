@@ -99,13 +99,7 @@ def load_user(user_id):
 #def index():
 #    return "<h1>Hello world!</h1>"
 def index():
-    first_name = "Ayesha"
-    stuff = "This is <strong>Bold</strong>" 
-    favourite_pizza = ["cheeese","notcheese","pineapple", 21]
-    return render_template("index.html", 
-        first_name=first_name, 
-        stuff=stuff, 
-        favourite_pizza =favourite_pizza)
+    return render_template("index.html")
 
 # localhost:5000/user/name
 @app.route('/user/<name>')
@@ -224,6 +218,7 @@ def update(id):
 
 # delete.html route [delete user]
 @app.route('/delete/<int:id>')
+@login_required
 def delete(id):
     user_to_delete = Users.query.get_or_404(id)
     name = None
@@ -278,7 +273,7 @@ def add_post():
 #posts.html     [viewing posts]
 @app.route('/posts')
 def posts():
-    posts = Posts.query.order_by(Posts.date_added)
+    posts = Posts.query.order_by(Posts.date_added.desc())
     return render_template("posts.html", posts=posts)
 
 #post.html      [view a specific post]
@@ -319,7 +314,7 @@ def edit_post(id):
 def delete_post(id):
     post_to_delete = Posts.query.get_or_404(id)
     id = current_user.id
-    if id == post_to_delete.poster.id:
+    if id == post_to_delete.poster.id or id == 1:
         try:
             db.session.delete(post_to_delete)
             db.session.commit()
@@ -360,6 +355,25 @@ def search():
     else:
         flash("nto workinf")
 
+#user_posts.html    [all the users posts]
+@app.route('/my-posts')
+def myposts():
+    posts = Posts.query.order_by(Posts.poster_id)
+    postCount = False
+    for post in posts:
+        if post.poster_id == current_user.id:
+            postCount = True
+            break
+    if postCount == True:
+         return render_template("myposts.html", posts=posts)
+    else:
+        return render_template('noposts.html', posts=posts)
+   
+#template.html      [template scripts]
+@app.route('/template')
+def template():
+    return render_template("template.html")
+
 ##################### Error pages #############################
 #Invalid URL
 @app.errorhandler(404)
@@ -370,3 +384,4 @@ def page_not_found(e):
 @app.errorhandler(500)
 def page_not_found(e):
     return render_template("500.html"), 500
+    

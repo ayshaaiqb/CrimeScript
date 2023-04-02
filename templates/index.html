@@ -1,21 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Crime Script WELCOME</h1>
+<h1>Welcome to Crime Scripting</h1>
+<br/>
+    <p>
+      Crime scripting is a simple and effective crime
+modeling technique that aims to improve understanding of security
+analysts about security and crime incidents.</p> <br/>
 
-<p>Thos os forst wen</p>
+<p>They are written in the form of definiting a problem, listing the  pre-conditons, during the crime conditons and post-conditons. Then the goal of the criminals is analysed in order to mitigate the requirements the criminal needs to fulfil.</p> <br/>
 
-<p>MY name is {{ first_name|capitalize }}</p>
+<p> This web application looks at three types of crime scripting methods: Narrative and Tables.</p> <br/>
 
-<p> {{ stuff|safe }}</p>
+<p> Narrative scripts tend to be simple text files that list the step, Tables will be formatted in a table form.</p> <br/>
 
-<h3>Fav Pizza</h3>
 
-{% for topping in favourite_pizza %}
-    {{ topping }}<br/>
-{% endfor %}
-
-<br/><br/>
-{{ favourite_pizza.0}}
 
 {% endblock %}

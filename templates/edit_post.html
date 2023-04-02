@@ -14,7 +14,7 @@
 {% endfor %}
 
 
-<h1> Edit Blog Post</h1>
+<h1> Edit Script</h1>
 <br/>
 <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
     <form method="POST">
@@ -49,6 +49,6 @@
     {{ ckeditor.config(name='content') }}
 </div>
 
-<a href="{{ url_for('posts') }}" class="btn btn-outline-secondary btn-sm">Back to Blog</a>
+<a href="{{ url_for('posts') }}" class="btn btn-outline-secondary btn-sm">Back to Library</a>
 
 {% endblock %}

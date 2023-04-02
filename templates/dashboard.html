@@ -23,7 +23,11 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Your Details</h5>
-            <p class="card-text"><strong>User Id:</strong> {{ current_user.id }} <br/>
+            {% if current_user.id == 1 %}
+            <p class="card-text"><strong>Account Type:</strong> <a href="{{ url_for('admin')}}">Admin</a><br/>
+            {% else %}
+            <p class="card-text"><strong>Account Type:</strong> User<br/>
+            {% endif %}
                 <strong>Name:</strong> {{ current_user.name }} <br/>
                 <strong>Username:</strong> {{ current_user.username }} <br/>
                 <strong>Email:</strong> {{ current_user.email }} <br/>

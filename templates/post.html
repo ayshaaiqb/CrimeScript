@@ -14,22 +14,21 @@
 {% endfor %}
 
 
-<h1> Blog posts</h1>
+<h1> {{ post.title }} </h1>
 <br/>
 
 
 <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-    <h2>{{ post.title }}</h2>
     Written By: {{ post.poster.name }}
     <br/><br/>
     {{ post.content|safe }}<br/><br/>
     <small>{{ post.date_added }}</small><br/>
     
 </div>
-<a href="{{ url_for('posts') }}" class="btn btn-outline-secondary btn-sm">Back to Blog</a>
+<a href="{{ url_for('posts') }}" class="btn btn-outline-secondary btn-sm">Back to Library</a>
 {% if post.poster_id == current_user.id %}
-<a href="{{ url_for('edit_post', id=post.id) }}" class="btn btn-outline-secondary btn-sm">Edit Post</a>
-<a href="{{ url_for('delete_post', id=post.id) }}" class="btn btn-outline-danger btn-sm">Delete Post</a><br/>
+<a href="{{ url_for('edit_post', id=post.id) }}" class="btn btn-outline-secondary btn-sm">Edit Script</a>
+<a href="{{ url_for('delete_post', id=post.id) }}" class="btn btn-outline-danger btn-sm">Delete Script</a><br/>
 {% endif %}
 
 {% endblock %}
