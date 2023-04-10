@@ -11,3 +11,16 @@
 .searchbar {
     float: right
 }
+
+#titlePage {
+    height: 100vh;
+    background: linear-gradient(
+        to top,
+        white 0%,
+        white 82%,
+        rgb(33,37,41) 82%,
+        rgb(33,37,41) 100%
+    );
+    
+
+}

@@ -2,19 +2,25 @@
 
 {% block content %}
 
-    <h2>Admin</h2>
-
+    <h2><strong>Welcome Admin</strong></h2>
+    <br/><br/>
     <h3>Here is a list of all the users:</h3>
-    <table  class="table table-hover table-bordered table-striped">
+    <table  class="table table-hover table-secondary">
+        <tr>
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
         {% for our_user in our_users %}
             <tr>
-            <td>{{ our_user.id }}. 
-                {{ our_user.username }} -
-                <a href="{{ url_for('update', id=our_user.id)}}"> {{ our_user.name }} </a> - 
-                {{ our_user.email }} - <a href="{{ url_for('delete', id=our_user.id)}}" >Delete</a> 
+            <td>{{ our_user.username }}</td>
+            <td>{{ our_user.name }}</td>
+            <td>{{ our_user.email }}</td>
+            <td>
+                <a href="{{ url_for('delete', id=our_user.id)}}" class="btn btn-outline-danger btn-sm">Delete</a> 
             </td>
             </tr>
-            
         {% endfor %}    
     </table>
         

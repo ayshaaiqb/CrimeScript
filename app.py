@@ -247,7 +247,9 @@ def delete(id):
 def admin():
     id = current_user.id
     if id == 1:
-        return render_template("admin.html")
+        our_users = Users.query.order_by(Users.date_added)
+        return render_template("admin.html",
+        our_users = our_users)
     else:
         flash("Access Denied, you are not Admin.")
         return redirect(url_for('dashboard'))

@@ -14,19 +14,11 @@
 {% endfor %}
 
 {% if name %} 
-    <h1>Users added</h1>
-
-    <br/><br/><br/>
-    <table  class="table table-hover table-bordered table-striped">
-        {% for our_user in our_users %}
-            <tr>
-            <td>{{ our_user.id }}. - {{ our_user.username 
-            }} <a href="{{ url_for('update', id=our_user.id)}}"> {{ our_user.name 
-                }}</a> - {{ our_user.email }} - <a href="{{ url_for('delete', id=our_user.id)}}">Delete</a></td>
-            </tr>
-            
-        {% endfor %}    
-        </table>
+    <br/><br/>
+    <center>
+        <h2>Click <a href="{{ url_for('login') }}">here</a> to redirect to the login page.</h2>
+    </center>
+        
 
 {% else %}
     <h1>Enter User Details</h1>
@@ -75,19 +67,6 @@
 
     </form>
     </div>
-<br/><br/><br/>
-<table  class="table table-hover table-bordered table-striped">
-{% for our_user in our_users %}
-    <tr>
-    <td>{{ our_user.id }}. 
-        {{ our_user.username }} -
-        <a href="{{ url_for('update', id=our_user.id)}}"> {{ our_user.name }} </a> - 
-        {{ our_user.email }}  <!-- - <a href="{{ url_for('delete', id=our_user.id)}}" >Delete</a> -->
-    </td>
-    </tr>
-    
-{% endfor %}    
-</table>
 
 {% endif %}
 

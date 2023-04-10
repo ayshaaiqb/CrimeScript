@@ -1,19 +1,96 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Welcome to Crime Scripting</h1>
-<br/>
-    <p>
-      Crime scripting is a simple and effective crime
-modeling technique that aims to improve understanding of security
-analysts about security and crime incidents.</p> <br/>
 
-<p>They are written in the form of definiting a problem, listing the  pre-conditons, during the crime conditons and post-conditons. Then the goal of the criminals is analysed in order to mitigate the requirements the criminal needs to fulfil.</p> <br/>
 
-<p> This web application looks at three types of crime scripting methods: Narrative and Tables.</p> <br/>
+<br/><br/>
+<div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="height: 100%;" id="titlePage">
+  <br/>
+  <br/>
+ 
+  <div >
+    <center><h1 style= "font-size: 100px; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: white"><strong>Welcome to Crime Scripting</strong></h1></center>
+ 
+  </div>
+  
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
 
-<p> Narrative scripts tend to be simple text files that list the step, Tables will be formatted in a table form.</p> <br/>
 
+  <div class="w3-content" style="max-width:700px">
+    <h4 class="text-decoration-underline">
+      What is Crime Scripting?
+    </h4>
+    <p> 
+      In 1994, Derek Cornish introduced the idea of crime scripting 
+      as a method to deconstruct complex crimes into smaller and 
+      understandable actions that could later be prevented.<br/>   
+      This method aims to improve understanding of security
+      analysts about security and crime incidents.
+
+         <br/><br/>
+    <h4 class="text-decoration-underline">
+      What is the Methodology?
+    </h4>
+    There are 3 types of crime scripting:<br/>
+    - Narrative<br/>
+    - Tables<br/>
+    - Flowcharts<br/><br/>
+
+    <figure class="figure">
+      <img src="/static/images/table script.png" class="figure-img img-fluid rounded">
+      <figcaption class="figure-caption">Example of crime script in table form</figcaption>
+    </figure>
+    <br/>
+    <br/>
+    All types of scripts will begin with defining the problem and setting the scene.<br/>
+    This is defined through key terms: <strong>Protoscript, Script and Track</strong> <br/><br/>
+    > Protoscript is describing a subgroup of the crime that shares similar 
+    characteristics (e.g. through robbery)<br/><br/>
+    > Script is further divided into subgroups that possess a clear attribute 
+    that have implications for prevention (e.g. robbery from the person)<br/><br/>
+    > Track which is details about the offence that has occurred according to 
+    the individual (e.g. subway robbery)<br/><br/>
+
+    The script then describes the sequence of basic actions, locations and 
+    roles that comprise of a crime.
+    This can be broken down into the following:<br/><br/>
+    > Prepartion <br/>
+    > Pre-conditions <br/>
+    > During conditions <br/>
+    > Post-conditions <br/><br/>
+  
+    At each stage of the criminals actions, <strong>intervention steps and failure requirements</strong> 
+    can be the planned in order to mitigate 
+    the requirements the criminal needs to fulfil. <br/><br/>
+
+    <h4 class="text-decoration-underline">
+      Overview of website:
+    </h4>
+    <a href="{{ url_for('template') }}" >Templates</a> page shows 
+    example crime scripts for users to reference when creating their own scripts.
+    <br/> <a href="{{ url_for('posts') }}" >Library</a> page is a library of all crime scripts made by users, allowing user 
+    to view each others scripts.
+    <br/><br/><br/>
+    <div class="w3-panel w3-leftbar w3-light-grey"> <small>
+      Crime Script references: <br/>
+      Cornish DB (1994b) The procedural analysis of offending and its relevance for 
+      situational prevention. Crime Prevention Studies 3: 151–196<br/>
+      Borrion, H., Dehghanniri, H., & Li, Y. (2017). Comparative Analysis of Crime 
+      Scripts: One CCTV Footage—Twenty-One Scripts. 2017 European Intelligence and 
+      Security Informatics Conference (EISIC), 115-122.
+    </small>
+
+     </p> 
+    </div>
+  </div>
+
+
+</div>
 
 
 {% endblock %}
