@@ -5,7 +5,7 @@ This application educates users on what crime scripting is and the impact of cre
   
 Users can create their own scripts, view a library of other users crime scripts as well as have templates aiding them.  
   
-[Crime script homepage](crimescript.png)
+[See Crimescript Homepage](crimescript.png)
 ******
 #Setting up the environment
 ******
